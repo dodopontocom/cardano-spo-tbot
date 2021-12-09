@@ -10,7 +10,7 @@ SHELL_BOT_API_URL="https://github.com/shellscriptx/shellbot.git"
 
 helper.get_api() {
   echo "[INFO] ShellBot API - Getting the newest version"
-  git clone ${SHELL_BOT_API_URL} ${HOME} > /dev/null
+  git clone ${SHELL_BOT_API_URL} ${BASEDIR} > /dev/null
 
   echo "[INFO] Providing the API for the bot's project folder"
 }
@@ -27,7 +27,7 @@ bot.metrics() {
 
 helper.get_api
 
-source ${HOME}/ShellBot.sh
+source ${BASEDIR}/ShellBot.sh
 ShellBot.init --token "${TELEGRAM_TOKEN}" --monitor --flush
 
 curl -s -X POST https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage -d chat_id=${TELEGRAM_ID} -d text="Bot is up and running..."
