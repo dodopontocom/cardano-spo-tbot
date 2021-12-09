@@ -8,10 +8,8 @@ SHELL_BOT_API_URL="https://github.com/shellscriptx/shellbot.git"
 SHELL_BOT_PATH=${BASEDIR}/shellbot
 
 helper.get_api() {
-  echo "[INFO] ShellBot API - Getting the newest version"
-  ls ${SHELL_BOT_PATH} > /dev/null 2>&1 || git clone ${SHELL_BOT_API_URL} ${SHELL_BOT_PATH} > /dev/null 2>&1
-
   echo "[INFO] Providing the API for the bot's project folder"
+  ls ${SHELL_BOT_PATH} > /dev/null 2>&1 || git clone ${SHELL_BOT_API_URL} ${SHELL_BOT_PATH} > /dev/null 2>&1
 }
 
 bot.metrics() {
