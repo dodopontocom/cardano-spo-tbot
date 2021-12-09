@@ -14,7 +14,7 @@ helper.get_api() {
   echo "[INFO] Providing the API for the bot's project folder"
 }
 
-helper.metrics() {
+bot.metrics() {
         local metric=$1
         arr=(${metric})
         arr[0]="/metric"
@@ -44,7 +44,7 @@ do
                 ShellBot.sendMessage --chat_id ${message_chat_id[$id]} --text "$(echo -e ${message})" --parse_mode markdown
             fi
             if [[ "$(echo ${message_text[$id]%%@*} | grep "^\/metric" )" ]]; then
-                        helper.metrics "${message_text[$id]}"
+                        bot.metrics "${message_text[$id]}"
             fi
         ) &
         done
