@@ -5,12 +5,11 @@ echo "${BASEDIR}"
 
 TELEGRAM_TOKEN="$1"
 TELEGRAM_ID=($2)
-API_GIT_URL="https://github.com/shellscriptx/shellbot.git"
-tmp_folder="~/shellBot"
+SHELL_BOT_API_URL="https://github.com/shellscriptx/shellbot.git"
 
 helper.get_api() {
   echo "[INFO] ShellBot API - Getting the newest version"
-  git clone ${API_GIT_URL} ${tmp_folder} > /dev/null
+  git clone ${SHELL_BOT_API_URL} > /dev/null
 
   echo "[INFO] Providing the API for the bot's project folder"
 }
