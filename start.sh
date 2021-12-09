@@ -2,6 +2,7 @@
 
 BASEDIR="$(cd $(dirname ${BASH_SOURCE[0]}) >/dev/null 2>&1 && pwd)"
 echo "${BASEDIR}"
+echo "$1"
 
 TELEGRAM_TOKEN="$1"
 TELEGRAM_ID=($2)
@@ -9,7 +10,7 @@ SHELL_BOT_API_URL="https://github.com/shellscriptx/shellbot.git"
 
 helper.get_api() {
   echo "[INFO] ShellBot API - Getting the newest version"
-  git clone ${SHELL_BOT_API_URL} > /dev/null
+  git clone ${SHELL_BOT_API_URL} ${HOME} > /dev/null
 
   echo "[INFO] Providing the API for the bot's project folder"
 }
@@ -26,7 +27,7 @@ bot.metrics() {
 
 helper.get_api
 
-source ${tmp_folder}/ShellBot.sh
+source ${HOME}/ShellBot.sh
 ShellBot.init --token "${TELEGRAM_TOKEN}" --monitor --flush
 
 curl -s -X POST https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage -d chat_id=${TELEGRAM_ID} -d text="Bot is up and running..."
