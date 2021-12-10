@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-BASEDIR="$(cd $(dirname ${BASH_SOURCE[0]}) >/dev/null 2>&1 && pwd)"
+export BASEDIR="$(cd $(dirname ${BASH_SOURCE[0]}) >/dev/null 2>&1 && pwd)"
+
+source ${BASEDIR}/helpers.sh
 
 TELEGRAM_TOKEN="$1"
 TELEGRAM_ID=($2)
